@@ -1,0 +1,572 @@
+@import 'reset';
+
+$button-color: #7cc476;
+$button-radius: 4px;
+$rightSideWidth: 650px;
+$leftSideWidth:450px;
+$text-color: #626360;
+$light-text-color:#939393;
+$dark-text-color:#222222;
+
+* {
+	box-sizing: border-box;
+}
+
+.visibility {
+	display: none;
+}
+
+@mixin flex($wrap, $justify-content : null) {
+	display: flex;
+	flex-flow: row $wrap;
+	justify-content: $justify-content;
+}
+
+@mixin button($tob-bottom, $left-right, $color, $bgc) {
+	color : $color;
+	text-transform: uppercase;
+	background-color: $bgc;
+	border:none;
+	border-radius: $button-radius;
+	padding : #{$tob-bottom}px #{$left-right}px;
+}
+
+html {
+	font-size: 1em;
+	height: 100%;
+	position: relative;
+	scroll-behavior: smooth;
+}
+
+.header {
+	.welcoming {
+		padding: 18% 0 20% 0;
+		text-align: center;
+		background-image: url('../img/pw_maze_black_2X.png');
+		img {
+			margin-bottom: 30px;
+		}
+		h1 {
+			color : white;
+			font-size: 4rem;
+			margin-bottom: 35px;
+		}
+		h2 {
+			color : $light-text-color;
+			margin-bottom: 55px;
+		}
+		.btn {
+			display: block;
+			width: 180px;
+			margin:0 auto;
+			text-decoration: none;
+			font-size: 1.2rem;
+			@include button(18, 26, white, $button-color);
+		}
+	}
+
+	nav {
+		width: 100%;
+		box-shadow: 0 2px 5px rgba(141, 149, 140, 0.5);
+		background-color: white;
+		.mainNavBar {
+			@include flex(wrap);
+			max-width:1000px;
+			margin: 0 auto;
+			li {
+				font-size: 0.9rem;
+				text-align: center;
+				align-self: center;
+				flex-grow:1;
+				padding: 25px 30px 20px 30px;
+				text-transform: uppercase;
+			}
+			a {
+				text-decoration: none;
+				color : black;
+				transition: 0.3s;
+				&:hover {
+					color:$button-color;
+				}
+			}
+		}
+	}
+}
+
+
+.block-XL {
+	padding: 90px 20px;
+	max-width: 1200px;
+	margin: 0 auto;
+}
+
+.block-L{
+	padding: 90px 20px;
+	max-width: 1050px;
+	margin:0 auto;
+}
+
+.container1 {
+	padding-right: 20px;
+}
+
+.group {
+	text-align: center;
+	h1 {
+		font-weight:bold;
+		color:$dark-text-color;
+		font-size: 2.2rem;
+		margin-bottom: 15px;
+		text-transform: uppercase;
+	}
+	p {
+		color: $light-text-color;
+		font-size: 1.1rem;
+	}
+}
+
+.services {
+	.group {
+		margin-bottom: 55px;
+	}
+}
+
+.portfolio {
+	.group {
+		margin-bottom: 60px;
+	}
+}
+
+.team {
+	.group {
+		margin-bottom: 40px;
+	}
+}
+
+.bcgColor-wrapper {
+	background-color: #f8faf5;
+}
+
+.leftSideBlock {
+	width: $leftSideWidth;
+}
+
+.rightSideBlock {
+	width: $rightSideWidth;
+}
+
+.option-block {
+		@include flex(nowrap);
+		margin-bottom: 25px;
+		
+		i {
+			width: 60px;
+			font-size: 2.4rem;
+			margin-right: 15px;
+		}
+
+		.option {
+			h2 {
+				font-size: 1.1rem;
+				margin-bottom: 8px;
+				color:$dark-text-color;
+			}
+			p {
+				line-height: 1.4;
+				color: $light-text-color;
+			}
+		}
+	}
+
+.phone {
+	img {
+		width: $leftSideWidth;
+	}
+}
+
+.paragraph {
+	h1 {
+		font-size: 2.4rem;
+		margin-bottom: 15px;
+		font-weight: bold;
+		color:$dark-text-color;
+	}
+	p {
+		line-height: 1.4;
+		margin-bottom: 35px;
+		color: $light-text-color;
+	}
+}
+
+.link-group {
+	@include flex(wrap, space-around);
+	max-width: 700px;
+	margin: 0 auto;
+	font-family: Arial;
+
+	.link {
+		@include button(14, 24, $dark-text-color, #f7f7f7);
+		text-decoration: none;
+		font-size: 0.75rem;
+		cursor: pointer;
+		transition: 0.4s;
+		&.active {
+			color: white;
+			background-color: $button-color;
+		}
+		&:hover {
+			@extend .active;
+		}
+	}
+}
+
+.templates {
+	@include flex(wrap, center);
+	
+	figure {
+		margin:50px 11px 0 11px;
+		img {
+			width: 350px;
+			transition: 0.4s;
+			&:hover {
+				opacity:0.6;
+			}
+
+		}
+
+		figcaption {
+			text-align: center;
+			h1 {
+				margin-top: 25px;
+				text-transform: uppercase;
+				color:$dark-text-color;
+			}
+			h2 {
+				margin-top: 12px;
+				color: $light-text-color;;
+			}
+		}
+	}
+}
+
+.secondaryHeader {
+	background-image: url('../img/section-bg1.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	.wrapper {
+		max-width: 1200px;
+		margin: 0 auto;
+		text-align: center;
+		padding: 60px 0;
+		i {
+			border: 2px solid $button-color;
+			padding: 22px 20px 16px 20px;
+			color:$button-color;
+			font-size: 	1.7rem;
+			border-radius: 50%;
+			margin-bottom: 30px;
+			transition: 0.4s;
+			cursor: pointer;
+			width: 70px;
+			&:hover {
+				color: white;
+				border-color: white;
+			}
+		}
+
+		p {
+			color: white;
+			font-style: italic;
+			font-size: 1.9rem;
+			line-height: 1.3;
+			margin-bottom: 30px;
+			padding: 0 20px;
+		}
+
+		a {
+			text-decoration: none;
+		}
+	}
+}
+
+.client {
+	img {
+		border-radius: 50%;
+		margin-bottom: 13px;
+	}
+
+	address {
+		color: white;
+		text-transform: uppercase;
+		margin-bottom: 7px;
+		font-size: 1.1rem;
+	}
+
+	cite {
+		color:$light-text-color; /* світліший на 50% потрібно */
+	}
+}
+
+.clients {
+
+	.links-logo {
+		background-color: $button-color;
+		ul {
+			@include flex(wrap, space-around);
+			max-width:950px;
+			margin:0 auto;
+			li {
+				align-self: center;
+				padding:25px 20px;
+			}
+		}
+	}
+
+}
+
+.personnel {
+	@include flex(wrap, space-between);
+	.person {
+		width: 307px;
+		.teammate {
+			position: relative;
+			&:hover .hoverBlock {
+				@include flex(nowrap, center);
+				align-items: center;
+				i {
+					margin:0 15px;
+					font-size: 1.9rem;
+					color:white;
+					transition: 0.4s;
+					&.fa-twitter:hover {
+						color: #56acee;
+					}
+					&.fa-facebook:hover {
+						color: #3c5a98;
+					}
+					&.fa-pinterest:hover {
+						color: #cb2127;
+					}
+					&.fa-google-plus:hover {
+						color: #dd4c3a;
+					}
+				}
+			}
+
+			img {
+				border: 7px solid #edf2ef;
+				border-radius:50%;
+			}
+
+			.hoverBlock {
+				width: 293px;
+				height: 293px;
+				top:7px;
+				left:7px;
+				position: absolute;
+				background-color: $dark-text-color;
+				opacity:0.8;
+				border-radius: 50%;
+				display: none;
+			}
+
+		}
+		figcaption {
+			text-align: center;
+			address {
+				margin-top: 20px;
+				color:$dark-text-color;
+			}
+			
+			.position {
+				margin-top: 10px;
+			}
+			
+			.description {
+				margin-top: 25px;
+				line-height: 1.4;
+			}
+
+			p {
+				color: $light-text-color;
+			}
+		}
+	}
+}
+
+.businessTitle {
+	background-image: url('../img/section-bg2.jpg');
+	background-repeat: no-repeat;
+	background-size: cover;
+	h1 {
+		color: white;
+		text-align: center;
+		text-transform: uppercase;
+		font-size: 3rem;
+		padding: 70px 0;
+		font-weight: bold;
+	}
+}
+
+
+.container-3 {
+	@include flex(wrap, space-between);
+}
+.container {
+	@include flex(wrap, space-between);
+}
+
+.info-block {
+	font-size: 1.05rem;
+	.info {
+		margin-bottom: 30px;
+		@include flex(wrap);
+		.title {
+			width: 6rem;
+			margin-right: 13px;
+			color:$dark-text-color;
+			h1{
+				text-transform: uppercase;
+			}
+			i {
+				margin-right: 7px;
+				font-size:1.1rem;
+			}
+		}
+
+		.details {
+			p {
+				color: $light-text-color;
+				&:not(:last-child) {
+					margin-bottom: 9px;
+				}
+			}
+
+			b {
+				font-weight: bold;
+			}
+		}
+	}
+}
+
+.shares {
+	margin-top: 55px;
+	@include flex(wrap);
+	i {
+		background-color: $dark-text-color;
+		color: white;
+		padding:13px;
+		border-radius: 50%;
+		font-size: 1.5rem;
+		width: 51px;
+		text-align: center;
+		transition: 0.4s;
+		&.fa-twitter:hover {
+			background-color: #56acee;
+		}
+		&.fa-facebook:hover {
+			background-color: #3c5a98;
+		}
+		&.fa-pinterest:hover {
+			background-color: #cb2127;
+		}
+		&.fa-google-plus:hover {
+			background-color: #dd4c3a;
+		}
+		&.fa-dribbble:hover {
+			background-color: #ea4d89;
+		}
+
+
+	}
+	a {
+		display: block;
+		&:not(:last-child) {
+			margin-right: 8px;
+		}
+	}
+}
+
+.form {
+
+	div {
+		margin-bottom: 18px;
+		p {
+			margin-top: 14px;
+			font-size: 0.85rem;
+			font-family: Arial;
+			color:red;
+		}
+	}
+
+	textarea {
+		resize: none;
+	}
+
+	input[type="submit"] {
+		@include button(15, 30, white, $button-color);
+		display: block;
+		margin:0 auto;
+		transition: 0.4s;
+		cursor: pointer;
+		&:hover {
+			color:white;
+			background-color: black;
+		}
+	}
+}
+
+.form-elem {
+	padding:15px;
+	border-radius: $button-radius;
+	border:1px solid silver;
+	width:500px;
+	font-size: 1rem;
+	font-family: Arial;
+	color: $light-text-color;
+}
+
+footer {
+	background-image: url('../img/pw_maze_black_2X.png');
+	text-align: center;
+	color:$light-text-color;
+	padding: 50px 0;
+
+	img {
+		margin-bottom: 30px;
+	}
+
+	p {
+		.bootstrap-link {
+			text-decoration:none;
+			color:$button-color;
+			font-weight: bold;
+		}
+		&.copyright {
+			margin-bottom: 7px;
+			i {
+				font-size: 0.8rem;
+				margin-right: 4px;
+			}
+		}
+	}
+}
+
+.container-1 {
+	padding-right:20px;
+	.option-block {
+		i {
+			color: $dark-text-color;
+		}
+	}
+}
+
+.container-2 {
+	.option-block {
+		i {
+			color:$light-text-color;
+		}
+	}
+}
+
